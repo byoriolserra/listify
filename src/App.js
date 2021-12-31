@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar/Navbar';
+import Searchbar from './components/Searchbar/Searchbar';
 
 function App() {
   return (
     <AppContainer>
       <Navbar />
+      <Searchbar />
     </AppContainer>
   );
 }
