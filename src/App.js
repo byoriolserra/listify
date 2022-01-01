@@ -5,6 +5,7 @@ import Searchbar from './components/Searchbar/Searchbar';
 import ResultsList from './components/ResultsList/ResultsList';
 import Playlist from './components/Playlist/Playlist';
 import ListSection from './components/ListSection/ListSection';
+import SaveButton from './components/SaveButton/SaveButton';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <ResultsList />
         <Playlist />
       </ListSection>
+      <SaveButton />
     </AppContainer>
   );
 }
