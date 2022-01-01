@@ -3,6 +3,8 @@ import { shallow } from 'enzyme';
 import App from './App';
 import Navbar from './components/Navbar/Navbar';
 import Searchbar from './components/Searchbar/Searchbar';
+import ResultsList from './components/ResultsList/ResultsList';
+import Playlist from './components/Playlist/Playlist';
 
 describe('App', () => {
 
@@ -26,5 +28,17 @@ describe('App', () => {
     const searchbar = wrapper.find(Searchbar);
 
     expect(searchbar).toHaveLength(1);
+  })
+
+  it('renders a results list container', () => {
+    const resultslist = wrapper.find(ResultsList);
+
+    expect(resultslist).toHaveLength(1);
+  })
+
+  it('renders a playlist', () => {
+    const playlist = wrapper.find(Playlist);
+
+    expect(playlist).toHaveLength(1);
   })
 })
