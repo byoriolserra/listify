@@ -17,7 +17,7 @@ describe('Results List', () => {
     it('displays a title', () => {
         const title = wrapper.find('h2');
 
-        expect(title.text()).toBe('Playlist');
+        expect(title.text()).toBe('Playlist: ');
     })
 
     it('renders a list of songs', () => {
