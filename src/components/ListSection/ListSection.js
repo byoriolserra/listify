@@ -20,4 +20,5 @@ const ListSectionContainer = styled.section`
     margin-top: 60px;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 `;
