@@ -36,7 +36,7 @@ export const SearchForm = styled.form`
         font-size: 13px;
         margin-right: 5px;
         outline: 0;
-        border: 1px solid rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(0, 0, 0, 0.2);
 
         :focus {
             text-align: left;
@@ -48,7 +48,7 @@ export const SearchForm = styled.form`
         color: white;
         font-size: 13px;
         padding: 4px 8px;
-        border: 1px solid rgba(0, 0, 0, 0.3);
+        border: 0;
         border-radius: 5px;
         cursor: pointer;
 
