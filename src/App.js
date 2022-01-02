@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import Navbar from './components/Navbar/Navbar';
 import Searchbar from './components/Searchbar/Searchbar';
@@ -6,8 +6,14 @@ import ResultsList from './components/ResultsList/ResultsList';
 import Playlist from './components/Playlist/Playlist';
 import ListSection from './components/ListSection/ListSection';
 import SaveButton from './components/SaveButton/SaveButton';
+import Spotify from './util/Spotify';
 
 function App() {
+
+  useEffect(() => {
+    window.addEventListener('load', () => Spotify.getAccessToken());
+  }, []);
+
   return (
     <AppContainer>
       <Navbar />
