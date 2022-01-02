@@ -1,23 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { search } from './searchbarSlice';
+import { updateSearchTerm } from './searchbarSlice';
+import { search } from '../ResultsList/resultslistSlice';
 import Spotify from '../../util/Spotify';
-import { update } from '../ResultsList/resultslistSlice';
 
 const Searchbar = () => {
-    const dispatch = useDispatch();
-    const searchTerm = useSelector(state => state.searchbar.term);
 
+    const dispatch = useDispatch();
+    const searchTerm = useSelector(state => state.searchbar.searchTerm);
+    
     const handleChange = (e) => {
         const value = e.target.value;
-        dispatch(search(value));
+        dispatch(updateSearchTerm(value));
     };
 
     const handleClick = (e) => {
         e.preventDefault();
-        // Spotify.search(searchTerm).then(data => dispatch(update(data)));
-        dispatch(update('Updated!'))
+        dispatch(search(Spotify.search(searchTerm)));
     };
 
     return (

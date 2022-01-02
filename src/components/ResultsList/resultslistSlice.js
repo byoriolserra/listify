@@ -8,11 +8,11 @@ const resultslistSlice = createSlice({
     name: 'resultslist',
     initialState,
     reducers: {
-        update(state, action) {
+        search(state, action) {
             state.searchResults = action.payload;
         }
     }
 });
 
 export default resultslistSlice.reducer;
-export const { update } = resultslistSlice.actions;
+export const { search } = resultslistSlice.actions;

@@ -11,8 +11,8 @@ import Spotify from './util/Spotify';
 function App() {
 
   useEffect(() => {
-    window.addEventListener('load', () => Spotify.getAccessToken());
-  }, []);
+    Spotify.getAccessToken();
+  }, [])
 
   return (
     <AppContainer>

@@ -1,12 +1,14 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import Searchbar, { SearchForm } from './Searchbar';
+import { Provider } from 'react-redux';
+import { store } from '../../store';
 
 describe('Searchbar', () => {
 
     let wrapper;
     beforeEach(() => {
-        wrapper = shallow(<Searchbar />);
+        wrapper = mount(<Provider store={store}><Searchbar /></Provider>);
     })
 
     it('renders without crashing', () => {
