@@ -1,21 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 
 const ResultsList = () => {
+
+    const tracks = useSelector(state => state.resultslist.searchResults);
+
     return (
         <ListContainer>
             <h2>Results</h2>
             <Line />
-            <Song>
-                <h3>La Fama</h3>
-                <p>Rosalia</p>
-            </Song>
-            <Line />
-            <Song>
-                <h3>Reactor</h3>
-                <p>Woodkid</p>
-            </Song>
-            <Line />
+            {tracks.map(track => {
+                return (
+                    <SongContainer key={track.id}>
+                        <Song>
+                            <h3>{track.name}</h3>
+                            <p>{track.artist}</p>
+                        </Song>
+                        <Line />
+                    </SongContainer>
+                )
+            })}
         </ListContainer>
     )
 }
@@ -53,4 +58,7 @@ export const Song = styled.div`
     h3 {
         font-size: 13px;
     }
+`;
+
+const SongContainer = styled.div`
 `;
