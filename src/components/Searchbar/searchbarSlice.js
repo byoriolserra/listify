@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    term: ''
+    searchTerm: '',
 };
 
 const searchbarSlice = createSlice({
@@ -9,7 +9,7 @@ const searchbarSlice = createSlice({
     initialState,
     reducers: {
         search(state, action) {
-            state.term = action.payload;
+            state.searchTerm = action.payload;
         }
     }
 });
