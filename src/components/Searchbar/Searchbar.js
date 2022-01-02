@@ -17,7 +17,7 @@ const Searchbar = () => {
 
     const handleClick = (e) => {
         e.preventDefault();
-        dispatch(search(Spotify.search(searchTerm)));
+        Spotify.search(searchTerm).then(results => dispatch(search(results)));
     };
 
     return (
