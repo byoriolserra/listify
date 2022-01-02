@@ -37,6 +37,7 @@ export const ListContainer = styled.div`
     max-width: 400px;
     border-radius: 5px;
     margin-right: 20px;
+    overflow: scroll;
 
     h2 {
         padding: 10px 15px;
