@@ -6,10 +6,10 @@ const initialState = {
 
 const searchbarSlice = createSlice({
     name: 'searchbar',
-    initialState: initialState,
+    initialState,
     reducers: {
-        search: (state, payload) => {
-            state.term = payload;
+        search(state, action) {
+            state.term = action.payload;
         }
     }
 });

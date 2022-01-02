@@ -1,16 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useDispatch } from 'react-redux';
+import { search } from './searchbarSlice';
 
 const Searchbar = () => {
+    const dispatch = useDispatch();
+
+    const handleChange = (e) => {
+        const term = e.target.value;
+        dispatch(search(term));
+    }
+
     return (
         <SearchbarContainer>
             <SearchForm>
-                <input id="type" type="text" placeholder='Search for a track'/>
-                <input id="search" type="submit" value="Search"/>
+                <input id="type" type="text" placeholder='Search for a track' onChange={handleChange} />
+                <input id="search" type="submit" value="Search" />
             </SearchForm>
         </SearchbarContainer>
-    )
-}
+    );
+};
 
 export default Searchbar;
 
