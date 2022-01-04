@@ -9,7 +9,7 @@ const resultslistSlice = createSlice({
     initialState,
     reducers: {
         search(state, action) {
-            state.resultslist.searchResults = action.payload;
+            state.searchResults = action.payload;
         }
     }
 });

@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    tracks: []
+    playlistTracks: []
 }
 
 const playlistSlice = createSlice({
@@ -9,7 +9,7 @@ const playlistSlice = createSlice({
     initialState,
     reducers: {
         add(state, action) {
-            state.playlist.tracks.push(action.payload);
+            state.playlistTracks.push(action.payload);
         }
     }
 });
