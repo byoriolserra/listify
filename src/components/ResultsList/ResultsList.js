@@ -44,7 +44,8 @@ export const ListContainer = styled.div`
         font-weight: 500;
         font-size: 20px;
         opacity: 0.8;
-        background-color: rgba(0, 0, 0, .08)
+        background-color: rgba(0, 0, 0, .08);
+        position: fixed;
     }
 `;
 
