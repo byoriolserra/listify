@@ -7,9 +7,9 @@ const initialState = {
 const playlistSlice = createSlice({
     name: 'playlist',
     initialState,
-    actions: {
+    reducers: {
         add(state, action) {
-            state.tracks.push(action.payload);
+            state.playlist.tracks.push(action.payload);
         }
     }
 });
