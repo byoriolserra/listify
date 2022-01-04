@@ -67,5 +67,5 @@ export const Song = styled.div`
     }
 `;
 
-const SongContainer = styled.button`
+const SongContainer = styled.a`
 `;
