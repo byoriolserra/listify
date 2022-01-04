@@ -1,10 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { add } from '../Playlist/playlistSlice';
 
 const ResultsList = () => {
 
     const tracks = useSelector(state => state.resultslist.searchResults);
+    const dispatch = useDispatch();
+
+    const handleClick = (track) => {
+        dispatch(add(track));
+    };
 
     return (
         <ListContainer>
@@ -12,7 +18,7 @@ const ResultsList = () => {
             <Line />
             {tracks.map(track => {
                 return (
-                    <SongContainer key={track.id}>
+                    <SongContainer key={track.id} onClick={handleClick(track)}>
                         <Song>
                             <h3>{track.name}</h3>
                             <p>{track.artist}</p>
@@ -61,5 +67,5 @@ export const Song = styled.div`
     }
 `;
 
-const SongContainer = styled.div`
+const SongContainer = styled.a`
 `;
