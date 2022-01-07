@@ -7,7 +7,7 @@ import { remove } from './playlistSlice';
 const Playlist = () => {
 
     const dispatch = useDispatch();
-    const playlistTracks = useSelector(state => state.playlist.playlistTracks);
+    const tracks = useSelector(state => state.playlist.playlistTracks);
 
     const handleClick = (track) => () => dispatch(remove(track));
 
@@ -16,7 +16,7 @@ const Playlist = () => {
         <PlaylistContainer>
             <h2>Playlist: <input type="text" placeholder="Name your playlist!"></input></h2>
             <Line />
-            {playlistTracks.map(track => {
+            {tracks.map(track => {
                 return (
                     <SongContainer key={track.id} onClick={handleClick(track)}>
                         <Song>
