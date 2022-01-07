@@ -9,6 +9,9 @@ const playlistSlice = createSlice({
     initialState,
     reducers: {
         add(state, action) {
+            if(state.playlistTracks.includes(action.payload.id)) {
+                return;
+            }
             state.playlistTracks.push(action.payload);
         },
         remove(state, action) {
