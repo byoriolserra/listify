@@ -18,7 +18,7 @@ const ResultsList = () => {
             <Line />
             {tracks.map(track => {
                 return (
-                    <SongContainer key={track.id} onClick={handleClick(track)}>
+                    <SongContainer key={track.id} onClick={handleClick}>
                         <Song>
                             <h3>{track.name}</h3>
                             <p>{track.artist}</p>
