@@ -10,9 +10,12 @@ const playlistSlice = createSlice({
     reducers: {
         add(state, action) {
             state.playlistTracks.push(action.payload);
+        },
+        remove(state, action) {
+            state.filter(song => song.id !== action.payload.id);
         }
     }
 });
 
 export default playlistSlice.reducer;
-export const { add } = playlistSlice.actions;
+export const { add, remove } = playlistSlice.actions;

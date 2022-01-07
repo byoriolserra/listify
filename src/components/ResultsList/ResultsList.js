@@ -65,5 +65,5 @@ export const Song = styled.div`
     }
 `;
 
-const SongContainer = styled.a`
+export const SongContainer = styled.a`
 `;
