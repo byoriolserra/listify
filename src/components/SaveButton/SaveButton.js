@@ -1,10 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
+import Spotify from '../../util/Spotify';
+import { useSelector } from 'react-redux';
 
 const SaveButton = () => {
+
+    const playlistName = useSelector(state => state.playlist.playlistName);
+    const playlistTracks = useSelector(state => state.playlist.playlistTracks);
+
+    const handleClick = () => {
+        const trackURIs = playlistTracks.map(track => track.uri);
+        Spotify.savePlaylist(playlistName, trackURIs);
+    };
+
     return (
         <SaveButtonContainer>
-            <Button>
+            <Button onClick={handleClick}>
                 Save Playlist
             </Button>
         </SaveButtonContainer>
