@@ -8,7 +8,7 @@ const Navbar = () => {
                 <h1>Listify</h1>
             </NavbarLeft>
             <NavbarRight>
-                <p>Log Out</p>
+                <p><a href="https://github.com/byoriolserra/listify" target='_blank' rel="noreferrer">GitHub Repo</a></p>
             </NavbarRight>
         </NavbarContainer>
     )
@@ -32,4 +32,14 @@ const NavbarLeft = styled.div`
 const NavbarRight = styled.div`
     flex: 0.4;
     text-align: right;
+
+    a {
+        cursor: pointer;
+        color: white;
+        text-decoration: none;
+
+        :hover {
+            opacity: 0.5;
+        }
+    }
 `;
