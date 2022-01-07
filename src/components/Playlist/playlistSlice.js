@@ -24,6 +24,7 @@ const playlistSlice = createSlice({
         },
         clear(state) {
             state.playlistTracks = [];
+            state.playlistName = '';
         }
     }
 });
