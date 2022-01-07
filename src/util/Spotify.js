@@ -1,7 +1,7 @@
 
 let accessToken;
 let clientId = '45f741ea0ef94c0ebd5ecb9d75b15104';
-let redirectURI = 'https://awesome-bell-228eea.netlify.app/';
+let redirectURI = 'https://listifyproject.netlify.app';
 
 const Spotify = {
 
