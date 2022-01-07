@@ -23,7 +23,6 @@ const playlistSlice = createSlice({
             state.playlistName = action.payload;
         },
         clear(state) {
-            state.playlistName = '';
             state.playlistTracks = [];
         }
     }

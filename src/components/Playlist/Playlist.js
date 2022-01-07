@@ -19,7 +19,7 @@ const Playlist = () => {
 
     return (
         <PlaylistContainer>
-            <h2>Playlist: <input type="text" placeholder="Name your playlist!" onChange={handleChange}></input></h2>
+            <h2>Playlist: <input id="playlist-name" type="text" placeholder="Name your playlist!" onChange={handleChange}></input></h2>
             <Line />
             {tracks.map(track => {
                 return (

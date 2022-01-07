@@ -13,6 +13,7 @@ const SaveButton = () => {
     const handleClick = () => {
         const trackURIs = playlistTracks.map(track => track.uri);
         Spotify.savePlaylist(playlistName, trackURIs);
+        document.getElementById('playlist-name').value = '';
         dispatch(clear());
     };
 
