@@ -1,16 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import Spotify from '../../util/Spotify';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { clear } from '../Playlist/playlistSlice';
 
 const SaveButton = () => {
 
+    const dispatch = useDispatch();
     const playlistName = useSelector(state => state.playlist.playlistName);
     const playlistTracks = useSelector(state => state.playlist.playlistTracks);
 
     const handleClick = () => {
         const trackURIs = playlistTracks.map(track => track.uri);
         Spotify.savePlaylist(playlistName, trackURIs);
+        dispatch(clear());
     };
 
     return (

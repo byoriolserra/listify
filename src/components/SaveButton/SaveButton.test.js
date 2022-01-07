@@ -1,12 +1,36 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import SaveButton, { Button } from './SaveButton';
+import { Provider } from 'react-redux';
+import { configureStore, createSlice } from '@reduxjs/toolkit';
+
+const playlistSlice = createSlice({
+    name: 'playlist',
+    initialState: {
+        playlistTracks: [{
+            name: 'Track Name',
+            artist: 'Artist Name',
+            id: 1
+        }]
+    },
+    reducers: {
+    }
+});
+
+const playlistReducer = playlistSlice.reducer;
+
+const mockStore = configureStore({
+    reducer: {
+        playlist: playlistReducer
+    }
+});
+
 
 describe('Save Button', () => {
 
     let wrapper;
     beforeEach(() => {
-        wrapper = shallow(<SaveButton />);
+        wrapper = mount(<Provider store={mockStore}><SaveButton /></Provider>);
     })
 
     it('renders without crashing', () => {

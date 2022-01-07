@@ -21,9 +21,13 @@ const playlistSlice = createSlice({
         },
         updateName(state, action) {
             state.playlistName = action.payload;
+        },
+        clear(state) {
+            state.playlistName = '';
+            state.playlistTracks = [];
         }
     }
 });
 
 export default playlistSlice.reducer;
-export const { add, remove, updateName } = playlistSlice.actions;
+export const { add, remove, updateName, clear } = playlistSlice.actions;
