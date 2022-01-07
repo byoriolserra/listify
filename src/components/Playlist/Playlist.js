@@ -2,19 +2,24 @@ import React from 'react';
 import { ListContainer, Line, Song, SongContainer } from '../ResultsList/ResultsList';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import { remove } from './playlistSlice';
+import { remove, updateName } from './playlistSlice';
 
 const Playlist = () => {
 
     const dispatch = useDispatch();
     const tracks = useSelector(state => state.playlist.playlistTracks);
 
+    const handleChange = (e) => {
+        let value = e.target.value;
+        dispatch(updateName(value));
+    };
+
     const handleClick = (track) => () => dispatch(remove(track));
 
 
     return (
         <PlaylistContainer>
-            <h2>Playlist: <input type="text" placeholder="Name your playlist!"></input></h2>
+            <h2>Playlist: <input type="text" placeholder="Name your playlist!" onChange={handleChange}></input></h2>
             <Line />
             {tracks.map(track => {
                 return (

@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
+    playlistName: '',
     playlistTracks: []
 }
 
@@ -17,9 +18,12 @@ const playlistSlice = createSlice({
         remove(state, action) {
             const updatedPlaylist = state.playlistTracks.filter(song => song.id !== action.payload.id);
             state.playlistTracks = updatedPlaylist;
+        },
+        updateName(state, action) {
+            state.playlistName = action.payload;
         }
     }
 });
 
 export default playlistSlice.reducer;
-export const { add, remove } = playlistSlice.actions;
+export const { add, remove, updateName } = playlistSlice.actions;
