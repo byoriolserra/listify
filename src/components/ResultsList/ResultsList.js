@@ -59,9 +59,14 @@ export const Line = styled.hr`
 export const Song = styled.div`
     padding: 5px 15px;
     font-size: 13px;
+    cursor: pointer;
 
     h3 {
         font-size: 13px;
+    }
+
+    :hover {
+        background-color: #e5fbed;
     }
 `;
 
