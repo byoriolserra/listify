@@ -12,7 +12,8 @@ const playlistSlice = createSlice({
             state.playlistTracks.push(action.payload);
         },
         remove(state, action) {
-            state.playlistTracks.filter(song => song.id !== action.payload.id);
+            const updatedPlaylist = state.playlistTracks.filter(song => song.id !== action.payload.id);
+            state.playlistTracks = updatedPlaylist;
         }
     }
 });
