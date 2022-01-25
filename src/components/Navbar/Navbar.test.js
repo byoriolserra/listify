@@ -22,7 +22,7 @@ describe('Navbar', () => {
     it('renders a log out button', () => {
         const logout = wrapper.find('p');
         
-        expect(logout.text()).toBe('Log Out');
+        expect(logout.text()).toBe('GitHub Repo');
     })
 
 })

@@ -1,31 +1,30 @@
-
 let accessToken;
-let clientId = '45f741ea0ef94c0ebd5ecb9d75b15104';
-let redirectURI = 'https://listifyproject.netlify.app';
+const clientId = process.env.REACT_APP_CLIENT_ID;
+const redirectURI = 'https://listifyproject.netlify.app';
 
 const Spotify = {
 
-    getAccessToken() {
-        if(accessToken) {
+    async getAccessToken() {
+        if (accessToken) {
             return accessToken;
-        }
+        };
 
         const accessTokenMatch = window.location.href.match(/access_token=([^&]*)/);
         const expirationTimeMatch = window.location.href.match(/expires_in=([^&]*)/);
 
-        if(accessTokenMatch && expirationTimeMatch) {
-            accessToken = accessTokenMatch[1];
-            const expiresIn = Number(expirationTimeMatch[1]);
-            window.setTimeout(() => accessToken='', expiresIn * 1000);
-            window.history.pushState('Access Token', null, '/');
-            return accessToken;
-        }
+        if (!accessTokenMatch) {
+            window.location = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&redirect_uri=${redirectURI}&scope=playlist-modify-public`;
+        };
 
-        window.location = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectURI}`;
+        accessToken = accessTokenMatch[1];
+        const expirationTime = (Number(expirationTimeMatch[1]) * 1000);
+        window.setTimeout(() => accessToken='', expirationTime);
+        window.history.pushState('Access Token', null, '/');
+        return accessToken;
     },
 
-    search(term) {
-        const accessToken = Spotify.getAccessToken();
+    async search(term) {
+        const accessToken = await Spotify.getAccessToken();
         return fetch(`https://api.spotify.com/v1/search?type=track&q=${term}`, {
             headers: {
                 Authorization: `Bearer ${accessToken}`
@@ -47,12 +46,12 @@ const Spotify = {
         });
     },
 
-    savePlaylist(name, trackUris) {
+    async savePlaylist(name, trackUris) {
         if(!name || !trackUris.length) {
             return;
         }
 
-        const accessToken = Spotify.getAccessToken();
+        const accessToken = await Spotify.getAccessToken();
         const headers = { Authorization: `Bearer ${accessToken} ` };
         let userId;
 
